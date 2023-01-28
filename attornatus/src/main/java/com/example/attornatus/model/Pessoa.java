@@ -1,6 +1,5 @@
 package com.example.attornatus.model;
 
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +15,13 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "TB_PESSOAS")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name = "TB_PESSOAS")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
-    
-    @Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String nome;
@@ -31,18 +30,17 @@ public class Pessoa implements Serializable {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "pessoa")
-	List <Endereco> enderecos = new ArrayList<>();
-	
-	
+	List<Endereco> enderecos = new ArrayList<>();
+
 	public Pessoa() {
 
 	}
 
-	public Pessoa( String nome, String dataNascimento) {
+	public Pessoa(String nome, String dataNascimento) {
 		super();
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
-		
+
 	}
 
 	public Long getId() {
@@ -69,12 +67,9 @@ public class Pessoa implements Serializable {
 		this.dataNascimento = dataNascimento;
 	}
 
-
 	public List<Endereco> getEnderecos() {
 		return enderecos;
 	}
-
-	
 
 	public int hashCode() {
 		final int prime = 31;
@@ -83,7 +78,6 @@ public class Pessoa implements Serializable {
 		return result;
 	}
 
-	
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -100,6 +94,4 @@ public class Pessoa implements Serializable {
 		return true;
 	}
 
-
-	
 }

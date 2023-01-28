@@ -12,39 +12,35 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-
 @Entity
-@Table (name = "TB_ENDERECOS")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Endereco  implements Serializable {
+@Table(name = "TB_ENDERECOS")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+public class Endereco implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String logradouro;
-	
+
 	private Integer cep;
-	
+
 	private Integer numero;
-	
+
 	private String cidade;
 
 	private Boolean isPrincipal;
-	
 
-
-	
 	@ManyToOne
-	
-	@JoinColumn(name = "pessoa_id")
-	private Pessoa pessoa; 
 
-	public Endereco () {
-		
+	@JoinColumn(name = "pessoa_id")
+	private Pessoa pessoa;
+
+	public Endereco() {
+
 	}
-	
+
 	public Endereco(String logradouro, Integer cep, Integer numero, String cidade, Boolean isPrincipal, Pessoa pessoa) {
 		this.logradouro = logradouro;
 		this.cep = cep;
@@ -89,13 +85,9 @@ public class Endereco  implements Serializable {
 		return cidade;
 	}
 
-	
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-
-
-	
 
 	public Pessoa getPessoa() {
 		return pessoa;
@@ -105,16 +97,13 @@ public class Endereco  implements Serializable {
 		this.pessoa = pessoa;
 	}
 
-
 	public Boolean getIsPrincipal() {
 		return isPrincipal;
 	}
 
-
 	public void setIsprincipal(Boolean isprincipal) {
 		this.isPrincipal = isprincipal;
 	}
-
 
 	public int hashCode() {
 		final int prime = 31;
@@ -123,7 +112,6 @@ public class Endereco  implements Serializable {
 		return result;
 	}
 
-	
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -140,9 +128,4 @@ public class Endereco  implements Serializable {
 		return true;
 	}
 
-
-
-
-
-	
 }

@@ -29,7 +29,7 @@ public class EnderecoContoller {
 	EnderecoRepository enderecoRepository;
 
 	@PostMapping()
-	public ResponseEntity<Endereco> insert(@RequestBody Endereco endereco){
+	public ResponseEntity<Endereco> insert(@RequestBody Endereco endereco) {
 		endereco = enderecoService.criarEndereco(endereco);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(endereco.getId()).toUri();
