@@ -33,7 +33,6 @@ public class Endereco implements Serializable {
 	private Boolean isPrincipal;
 
 	@ManyToOne
-
 	@JoinColumn(name = "pessoa_id")
 	private Pessoa pessoa;
 
